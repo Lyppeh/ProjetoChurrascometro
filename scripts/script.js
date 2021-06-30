@@ -6,26 +6,33 @@ let resultado = document.getElementById("resultado")
 
 function calcular() {
 
-    let adultos = parseInt(totalAdultos.value)
-    let crianças = parseInt(totalCrianças.value) / 2
-    let duração = parseInt(totalDuração.value)
-    
-    
-    
-    let carneAdultos = quantidadeCarne(duração) * adultos
-    let carneCrianças = (quantidadeCarne(duração) * crianças)
-    let carneTotal = carneAdultos + carneCrianças
-    
+    if (totalAdultos.value == "" || totalCrianças.value == "") {
+        alert("Preencha todos os campos")
+    }
 
-    let cervejaTotal = quantidadeCerveja(duração) * adultos
-    
+    else {
 
-    let refrigerantesTotal = quantidadeRefri(duração) * (adultos + crianças)
+        let adultos = parseInt(totalAdultos.value)
+        let crianças = parseInt(totalCrianças.value) / 2
+        let duração = parseInt(totalDuração.value)
 
-    
-    resultado.innerHTML = `<p>${carneTotal / 1000 } Kg de Carne</p>`
-    resultado.innerHTML += `<p>${Math.ceil(cervejaTotal/ 437)} Latas de cerveja 473ml </p>`
-    resultado.innerHTML += `<p>${refrigerantesTotal / 1000 } Litros de Refrigerante</p>`
+
+
+        let carneAdultos = quantidadeCarne(duração) * adultos
+        let carneCrianças = (quantidadeCarne(duração) * crianças)
+        let carneTotal = carneAdultos + carneCrianças
+
+
+        let cervejaTotal = quantidadeCerveja(duração) * adultos
+
+
+        let refrigerantesTotal = quantidadeRefri(duração) * (adultos + crianças)
+
+
+        resultado.innerHTML = `<p>${carneTotal / 1000} Kg de Carne</p>`
+        resultado.innerHTML += `<p>${Math.ceil(cervejaTotal / 437)} Latas de cerveja 473ml </p>`
+        resultado.innerHTML += `<p>${refrigerantesTotal / 1000} Litros de Refrigerante</p>`
+    }
 
 }
 
